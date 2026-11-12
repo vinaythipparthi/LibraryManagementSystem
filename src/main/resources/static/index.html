@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <div>
+        <p class="eyebrow">LIBRARY MANAGEMENT</p>
+        <h1>Book collection</h1>
+        <p class="subtitle">A simple place to keep your library in order.</p>
+    </div>
+    <div class="count-card"><span id="bookCount">0</span><small>Books in collection</small></div>
+</header>
+
+<main>
+    <section class="panel">
+        <div class="section-heading">
+            <div>
+                <p class="eyebrow">BOOK DETAILS</p>
+                <h2 id="formTitle">Add a book</h2>
+            </div>
+            <button class="secondary hidden" id="cancelEdit" type="button">Cancel edit</button>
+        </div>
+        <form id="bookForm">
+            <input type="hidden" id="bookId">
+            <div class="form-grid">
+                <label>Title<input id="title" required maxlength="150" placeholder="e.g. Clean Code"></label>
+                <label>Author<input id="author" required maxlength="100" placeholder="e.g. Robert C. Martin"></label>
+                <label>ISBN<input id="isbn" required maxlength="30" placeholder="e.g. 9780132350884"></label>
+                <label>Category<input id="category" maxlength="80" placeholder="e.g. Programming"></label>
+                <label>Quantity<input id="quantity" type="number" min="0" value="1" required></label>
+            </div>
+            <button class="primary" id="submitButton" type="submit">Add book</button>
+            <p id="message" role="status"></p>
+        </form>
+    </section>
+
+    <section class="panel">
+        <div class="section-heading">
+            <div>
+                <p class="eyebrow">YOUR SHELF</p>
+                <h2>All books</h2>
+            </div>
+            <button class="secondary" id="refreshButton" type="button">Refresh</button>
+        </div>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Book</th><th>Author</th><th>ISBN</th><th>Category</th><th>Qty.</th><th>Actions</th></tr></thead>
+                <tbody id="bookTable">
+                    <tr><td colspan="6" class="empty">Loading books...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</main>
+<footer>Library Management System · Spring Boot + MySQL</footer>
+<script src="app.js"></script>
+</body>
+</html>
